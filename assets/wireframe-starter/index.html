@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{{META_TITLE}}</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">{{SKIP_LINK}}</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="wordmark" href="#top" aria-label="{{HOME_ARIA_LABEL}}">
+        <strong>{{SITE_NAME}}</strong>
+        <span>{{SITE_DESCRIPTOR}}</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" data-menu-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span class="sr-only">{{MENU_OPEN_LABEL}}</span>
+      </button>
+
+      <nav class="main-nav" id="main-menu" aria-label="{{NAV_ARIA_LABEL}}" data-menu>
+        <a href="#services">{{NAV_SERVICES}}</a>
+        <a href="#pricing">{{NAV_PRICING}}</a>
+        <a href="#process">{{NAV_PROCESS}}</a>
+        <a href="#proof">{{NAV_PROOF}}</a>
+        <a href="#contact">{{NAV_CONTACT}}</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="phone-link" href="tel:{{PHONE_TEL}}">{{PHONE_DISPLAY}}</a>
+        <button class="button button-outline" type="button" data-open-modal="quote-modal">{{HEADER_CTA}}</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-gray" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{HERO_EYEBROW}}</p>
+          <h1>{{HERO_TITLE}}</h1>
+          <p class="lead">{{HERO_TEXT}}</p>
+          <div class="button-row">
+            <a class="button button-dark" href="tel:{{PHONE_TEL}}">{{HERO_PRIMARY_CTA}}</a>
+            <button class="button button-outline" type="button" data-open-modal="quote-modal">{{HERO_SECONDARY_CTA}}</button>
+          </div>
+          <p class="microcopy">{{HERO_MICROCOPY}}</p>
+        </div>
+
+        <div class="media-placeholder media-hero" role="img" aria-label="{{HERO_VISUAL_DESCRIPTION}}">
+          <span>{{PHOTO_LABEL}}</span>
+        </div>
+      </div>
+
+      <div class="container facts-grid" aria-label="{{FACTS_ARIA_LABEL}}">
+        <article class="fact-card">
+          <strong>{{FACT_1_VALUE}}</strong>
+          <span>{{FACT_1_TEXT}}</span>
+        </article>
+        <article class="fact-card">
+          <strong>{{FACT_2_VALUE}}</strong>
+          <span>{{FACT_2_TEXT}}</span>
+        </article>
+        <article class="fact-card">
+          <strong>{{FACT_3_VALUE}}</strong>
+          <span>{{FACT_3_TEXT}}</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-white" id="situations">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">{{SITUATIONS_EYEBROW}}</p>
+            <h2>{{SITUATIONS_TITLE}}</h2>
+          </div>
+          <p>{{SITUATIONS_TEXT}}</p>
+        </div>
+
+        <div class="cards-grid cards-grid-three">
+          <article class="scenario-card">
+            <div class="media-placeholder media-card" role="img" aria-label="{{SITUATION_1_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+            <h3>{{SITUATION_1_TITLE}}</h3>
+            <p>{{SITUATION_1_TEXT}}</p>
+            <a class="text-link" href="tel:{{PHONE_TEL}}">{{SITUATION_1_CTA}} <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-card card-dark">
+            <div class="media-placeholder media-card media-dark" role="img" aria-label="{{SITUATION_2_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+            <h3>{{SITUATION_2_TITLE}}</h3>
+            <p>{{SITUATION_2_TEXT}}</p>
+            <a class="text-link" href="tel:{{PHONE_TEL}}">{{SITUATION_2_CTA}} <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="scenario-card">
+            <div class="media-placeholder media-card" role="img" aria-label="{{SITUATION_3_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+            <h3>{{SITUATION_3_TITLE}}</h3>
+            <p>{{SITUATION_3_TEXT}}</p>
+            <a class="text-link" href="tel:{{PHONE_TEL}}">{{SITUATION_3_CTA}} <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray" id="advantages">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">{{ADVANTAGES_EYEBROW}}</p>
+            <h2>{{ADVANTAGES_TITLE}}</h2>
+          </div>
+          <p>{{ADVANTAGES_TEXT}}</p>
+        </div>
+
+        <div class="feature-layout">
+          <div class="feature-grid">
+            <article><span class="feature-icon" aria-hidden="true">01</span><div><h3>{{ADVANTAGE_1_TITLE}}</h3><p>{{ADVANTAGE_1_TEXT}}</p></div></article>
+            <article><span class="feature-icon" aria-hidden="true">02</span><div><h3>{{ADVANTAGE_2_TITLE}}</h3><p>{{ADVANTAGE_2_TEXT}}</p></div></article>
+            <article><span class="feature-icon" aria-hidden="true">03</span><div><h3>{{ADVANTAGE_3_TITLE}}</h3><p>{{ADVANTAGE_3_TEXT}}</p></div></article>
+            <article><span class="feature-icon" aria-hidden="true">04</span><div><h3>{{ADVANTAGE_4_TITLE}}</h3><p>{{ADVANTAGE_4_TEXT}}</p></div></article>
+            <article><span class="feature-icon" aria-hidden="true">05</span><div><h3>{{ADVANTAGE_5_TITLE}}</h3><p>{{ADVANTAGE_5_TEXT}}</p></div></article>
+            <article><span class="feature-icon" aria-hidden="true">06</span><div><h3>{{ADVANTAGE_6_TITLE}}</h3><p>{{ADVANTAGE_6_TEXT}}</p></div></article>
+          </div>
+          <div class="media-placeholder media-feature" role="img" aria-label="{{ADVANTAGES_VISUAL_DESCRIPTION}}"><span>{{PHOTO_LABEL}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="services">
+      <div class="container">
+        <div class="section-heading split-heading heading-light">
+          <div>
+            <p class="eyebrow">{{SERVICES_EYEBROW}}</p>
+            <h2>{{SERVICES_TITLE}}</h2>
+          </div>
+          <p>{{SERVICES_TEXT}}</p>
+        </div>
+
+        <div class="tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="{{SERVICES_TABS_LABEL}}">
+            <button id="tab-a" role="tab" aria-selected="true" aria-controls="panel-a" tabindex="0">{{SERVICE_TAB_1}}</button>
+            <button id="tab-b" role="tab" aria-selected="false" aria-controls="panel-b" tabindex="-1">{{SERVICE_TAB_2}}</button>
+            <button id="tab-c" role="tab" aria-selected="false" aria-controls="panel-c" tabindex="-1">{{SERVICE_TAB_3}}</button>
+            <button id="tab-d" role="tab" aria-selected="false" aria-controls="panel-d" tabindex="-1">{{SERVICE_TAB_4}}</button>
+          </div>
+
+          <div class="tab-panel" id="panel-a" role="tabpanel" aria-labelledby="tab-a">
+            <div class="service-copy">
+              <h3>{{SERVICE_PANEL_1_TITLE}}</h3>
+              <ul class="service-list">
+                <li><strong>{{SERVICE_1_1_TITLE}}</strong><span>{{SERVICE_1_1_TEXT}}</span></li>
+                <li><strong>{{SERVICE_1_2_TITLE}}</strong><span>{{SERVICE_1_2_TEXT}}</span></li>
+                <li><strong>{{SERVICE_1_3_TITLE}}</strong><span>{{SERVICE_1_3_TEXT}}</span></li>
+                <li><strong>{{SERVICE_1_4_TITLE}}</strong><span>{{SERVICE_1_4_TEXT}}</span></li>
+              </ul>
+            </div>
+            <div class="media-placeholder media-service" role="img" aria-label="{{SERVICE_PANEL_1_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+          </div>
+
+          <div class="tab-panel" id="panel-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+            <div class="service-copy">
+              <h3>{{SERVICE_PANEL_2_TITLE}}</h3>
+              <ul class="service-list">
+                <li><strong>{{SERVICE_2_1_TITLE}}</strong><span>{{SERVICE_2_1_TEXT}}</span></li>
+                <li><strong>{{SERVICE_2_2_TITLE}}</strong><span>{{SERVICE_2_2_TEXT}}</span></li>
+              </ul>
+            </div>
+            <div class="media-placeholder media-service" role="img" aria-label="{{SERVICE_PANEL_2_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+          </div>
+
+          <div class="tab-panel" id="panel-c" role="tabpanel" aria-labelledby="tab-c" hidden>
+            <div class="service-copy">
+              <h3>{{SERVICE_PANEL_3_TITLE}}</h3>
+              <ul class="service-list">
+                <li><strong>{{SERVICE_3_1_TITLE}}</strong><span>{{SERVICE_3_1_TEXT}}</span></li>
+                <li><strong>{{SERVICE_3_2_TITLE}}</strong><span>{{SERVICE_3_2_TEXT}}</span></li>
+                <li><strong>{{SERVICE_3_3_TITLE}}</strong><span>{{SERVICE_3_3_TEXT}}</span></li>
+              </ul>
+            </div>
+            <div class="media-placeholder media-service" role="img" aria-label="{{SERVICE_PANEL_3_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+          </div>
+
+          <div class="tab-panel" id="panel-d" role="tabpanel" aria-labelledby="tab-d" hidden>
+            <div class="service-copy">
+              <h3>{{SERVICE_PANEL_4_TITLE}}</h3>
+              <ul class="service-list">
+                <li><strong>{{SERVICE_4_1_TITLE}}</strong><span>{{SERVICE_4_1_TEXT}}</span></li>
+                <li><strong>{{SERVICE_4_2_TITLE}}</strong><span>{{SERVICE_4_2_TEXT}}</span></li>
+              </ul>
+            </div>
+            <div class="media-placeholder media-service" role="img" aria-label="{{SERVICE_PANEL_4_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray" id="pricing">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">{{PRICING_EYEBROW}}</p>
+            <h2>{{PRICING_TITLE}}</h2>
+          </div>
+          <p>{{PRICING_TEXT}}</p>
+        </div>
+
+        <div class="cards-grid cards-grid-three">
+          <article class="price-card">
+            <p class="card-label">{{PRICE_1_LABEL}}</p>
+            <h3>{{PRICE_1_TITLE}}</h3>
+            <strong class="price">{{PRICE_1_VALUE}}</strong>
+            <div class="media-placeholder media-price" role="img" aria-label="{{PRICE_1_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+            <p>{{PRICE_1_TEXT}}</p>
+            <a class="button button-dark button-block" href="tel:{{PHONE_TEL}}">{{PRICE_1_CTA}}</a>
+          </article>
+          <article class="price-card price-card-featured">
+            <p class="card-label">{{PRICE_2_LABEL}}</p>
+            <h3>{{PRICE_2_TITLE}}</h3>
+            <strong class="price">{{PRICE_2_VALUE}}</strong>
+            <div class="media-placeholder media-price media-dark" role="img" aria-label="{{PRICE_2_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+            <p>{{PRICE_2_TEXT}}</p>
+            <button class="button button-light button-block" type="button" data-open-modal="quote-modal">{{PRICE_2_CTA}}</button>
+          </article>
+          <article class="price-card">
+            <p class="card-label">{{PRICE_3_LABEL}}</p>
+            <h3>{{PRICE_3_TITLE}}</h3>
+            <strong class="price">{{PRICE_3_VALUE}}</strong>
+            <div class="media-placeholder media-price" role="img" aria-label="{{PRICE_3_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div>
+            <p>{{PRICE_3_TEXT}}</p>
+            <button class="button button-dark button-block" type="button" data-open-modal="quote-modal">{{PRICE_3_CTA}}</button>
+          </article>
+        </div>
+        <p class="section-note">{{PRICING_NOTE}}</p>
+      </div>
+    </section>
+
+    <section class="section section-white" id="process">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">{{PROCESS_EYEBROW}}</p>
+            <h2>{{PROCESS_TITLE}}</h2>
+          </div>
+          <p>{{PROCESS_TEXT}}</p>
+        </div>
+
+        <div class="process-grid">
+          <article><span>01</span><h3>{{STEP_1_TITLE}}</h3><p>{{STEP_1_TEXT}}</p></article>
+          <article><span>02</span><h3>{{STEP_2_TITLE}}</h3><p>{{STEP_2_TEXT}}</p></article>
+          <article><span>03</span><h3>{{STEP_3_TITLE}}</h3><p>{{STEP_3_TEXT}}</p></article>
+          <article><span>04</span><h3>{{STEP_4_TITLE}}</h3><p>{{STEP_4_TEXT}}</p></article>
+        </div>
+
+        <div class="scheduled-row">
+          <div><p class="eyebrow">{{SCHEDULED_EYEBROW}}</p><h3>{{SCHEDULED_TITLE}}</h3></div>
+          <p>{{SCHEDULED_TEXT}}</p>
+          <div><strong>{{PAYMENT_TITLE}}</strong><span>{{PAYMENT_TEXT}}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-section section-gray" aria-labelledby="compatibility-title">
+      <div class="container section-heading split-heading compact-heading">
+        <div><p class="eyebrow">{{COMPATIBILITY_EYEBROW}}</p><h2 id="compatibility-title">{{COMPATIBILITY_TITLE}}</h2></div>
+        <p>{{COMPATIBILITY_TEXT}}</p>
+      </div>
+      <div class="marquee" aria-label="{{MARQUEE_ARIA_LABEL}}">
+        <div class="marquee-track">
+          <div class="marquee-set"><span>{{ITEM_1}}</span><i>•</i><span>{{ITEM_2}}</span><i>•</i><span>{{ITEM_3}}</span><i>•</i><span>{{ITEM_4}}</span><i>•</i><span>{{ITEM_5}}</span><i>•</i><span>{{ITEM_6}}</span><i>•</i></div>
+          <div class="marquee-set" aria-hidden="true"><span>{{ITEM_1}}</span><i>•</i><span>{{ITEM_2}}</span><i>•</i><span>{{ITEM_3}}</span><i>•</i><span>{{ITEM_4}}</span><i>•</i><span>{{ITEM_5}}</span><i>•</i><span>{{ITEM_6}}</span><i>•</i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="area">
+      <div class="container split-media">
+        <div>
+          <p class="eyebrow">{{AREA_EYEBROW}}</p>
+          <h2>{{AREA_TITLE}}</h2>
+          <p class="lead-small">{{AREA_TEXT}}</p>
+          <div class="highlight-box"><strong>{{AREA_HIGHLIGHT}}</strong><span>{{AREA_HIGHLIGHT_TEXT}}</span></div>
+          <a class="button button-dark" href="tel:{{PHONE_TEL}}">{{AREA_CTA}}</a>
+        </div>
+        <div class="media-placeholder media-map" role="img" aria-label="{{MAP_VISUAL_DESCRIPTION}}"><span>{{MAP_LABEL}}</span></div>
+      </div>
+    </section>
+
+    <section class="section section-gray" id="warranty">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">{{WARRANTY_EYEBROW}}</p><h2>{{WARRANTY_TITLE}}</h2></div>
+          <p>{{WARRANTY_TEXT}}</p>
+        </div>
+        <div class="warranty-grid">
+          <article class="warranty-card">
+            <div>
+              <p class="card-label">{{WARRANTY_BASE_LABEL}}</p>
+              <h3>{{WARRANTY_BASE_TITLE}}</h3>
+              <p>{{WARRANTY_BASE_TEXT}}</p>
+              <ul class="check-list"><li>{{WARRANTY_POINT_1}}</li><li>{{WARRANTY_POINT_2}}</li><li>{{WARRANTY_POINT_3}}</li></ul>
+            </div>
+            <div class="warranty-visual"><strong>{{WARRANTY_VALUE}}</strong><span>{{WARRANTY_UNIT}}</span><div class="media-placeholder" role="img" aria-label="{{WARRANTY_VISUAL_DESCRIPTION}}"><span>{{PHOTO_LABEL}}</span></div></div>
+          </article>
+          <article class="warranty-card warranty-card-dark">
+            <p class="card-label">{{WARRANTY_EXTRA_LABEL}}</p>
+            <h3>{{WARRANTY_EXTRA_TITLE}}</h3>
+            <p>{{WARRANTY_EXTRA_TEXT}}</p>
+            <ul class="check-list"><li>{{WARRANTY_EXTRA_POINT_1}}</li><li>{{WARRANTY_EXTRA_POINT_2}}</li><li>{{WARRANTY_EXTRA_POINT_3}}</li></ul>
+          </article>
+        </div>
+        <p class="section-note">{{WARRANTY_NOTE}}</p>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="about">
+      <div class="container">
+        <div class="section-heading split-heading heading-light">
+          <div><p class="eyebrow">{{ABOUT_EYEBROW}}</p><h2>{{ABOUT_TITLE}}</h2></div>
+          <p>{{ABOUT_TEXT}}</p>
+        </div>
+        <div class="about-layout">
+          <div class="media-placeholder media-portrait" role="img" aria-label="{{ABOUT_VISUAL_DESCRIPTION}}"><span>{{PHOTO_LABEL}}</span></div>
+          <div class="about-facts">
+            <article><strong>{{ABOUT_FACT_1_VALUE}}</strong><p>{{ABOUT_FACT_1_TEXT}}</p></article>
+            <article><strong>{{ABOUT_FACT_2_VALUE}}</strong><p>{{ABOUT_FACT_2_TEXT}}</p></article>
+            <article><strong>{{ABOUT_FACT_3_VALUE}}</strong><p>{{ABOUT_FACT_3_TEXT}}</p></article>
+            <article><strong>{{ABOUT_FACT_4_VALUE}}</strong><p>{{ABOUT_FACT_4_TEXT}}</p></article>
+            <a class="button button-light button-block" href="tel:{{PHONE_TEL}}">{{ABOUT_CTA}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="proof">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">{{WORK_EYEBROW}}</p><h2>{{WORK_TITLE}}</h2></div>
+          <p>{{WORK_TEXT}}</p>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track" data-carousel-track>
+              <article class="carousel-slide" data-slide><div class="media-placeholder media-work" role="img" aria-label="{{WORK_1_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div><h3>{{WORK_1_TITLE}}</h3></article>
+              <article class="carousel-slide" data-slide><div class="media-placeholder media-work" role="img" aria-label="{{WORK_2_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div><h3>{{WORK_2_TITLE}}</h3></article>
+              <article class="carousel-slide" data-slide><div class="media-placeholder media-work" role="img" aria-label="{{WORK_3_VISUAL}}"><span>{{PHOTO_LABEL}}</span></div><h3>{{WORK_3_TITLE}}</h3></article>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button type="button" class="round-button" data-carousel-prev aria-label="{{CAROUSEL_PREV_LABEL}}">←</button>
+            <p class="carousel-status" aria-live="polite" data-carousel-status></p>
+            <button type="button" class="round-button" data-carousel-next aria-label="{{CAROUSEL_NEXT_LABEL}}">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray" id="reviews">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">{{REVIEWS_EYEBROW}}</p><h2>{{REVIEWS_TITLE}}</h2></div>
+          <p>{{REVIEWS_TEXT}}</p>
+        </div>
+        <div class="cards-grid cards-grid-two">
+          <blockquote class="review-card"><p class="rating" aria-label="{{REVIEW_1_RATING_LABEL}}">★★★★★</p><p>“{{REVIEW_1_TEXT}}”</p><footer>{{REVIEW_1_AUTHOR}}</footer></blockquote>
+          <blockquote class="review-card"><p class="rating" aria-label="{{REVIEW_2_RATING_LABEL}}">★★★★★</p><p>“{{REVIEW_2_TEXT}}”</p><footer>{{REVIEW_2_AUTHOR}}</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="faq">
+      <div class="container faq-layout">
+        <div><p class="eyebrow">{{FAQ_EYEBROW}}</p><h2>{{FAQ_TITLE}}</h2><p>{{FAQ_TEXT}}</p></div>
+        <div class="faq-list">
+          <details><summary>{{FAQ_1_QUESTION}}</summary><p>{{FAQ_1_ANSWER}}</p></details>
+          <details><summary>{{FAQ_2_QUESTION}}</summary><p>{{FAQ_2_ANSWER}}</p></details>
+          <details><summary>{{FAQ_3_QUESTION}}</summary><p>{{FAQ_3_ANSWER}}</p></details>
+          <details><summary>{{FAQ_4_QUESTION}}</summary><p>{{FAQ_4_ANSWER}}</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray" id="request">
+      <div class="container form-layout">
+        <div><p class="eyebrow">{{FORM_EYEBROW}}</p><h2>{{FORM_TITLE}}</h2><p>{{FORM_TEXT}}</p></div>
+        <form class="demo-form" data-demo-form novalidate>
+          <div class="form-field"><label for="service">{{FORM_SERVICE_LABEL}}</label><select id="service" name="service" required><option value="">{{FORM_SERVICE_PLACEHOLDER}}</option><option>{{FORM_SERVICE_OPTION_1}}</option><option>{{FORM_SERVICE_OPTION_2}}</option><option>{{FORM_SERVICE_OPTION_3}}</option></select><small class="field-error" id="service-error"></small></div>
+          <div class="form-field"><label for="phone">{{FORM_PHONE_LABEL}}</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="{{FORM_PHONE_PLACEHOLDER}}" required><small class="field-error" id="phone-error"></small></div>
+          <div class="form-field form-field-wide"><label for="message">{{FORM_MESSAGE_LABEL}}</label><textarea id="message" name="message" rows="5" placeholder="{{FORM_MESSAGE_PLACEHOLDER}}"></textarea><small>{{FORM_MESSAGE_HELP}}</small></div>
+          <button class="button button-dark" type="submit">{{FORM_SUBMIT}}</button>
+          <div class="form-success" role="status" tabindex="-1" hidden data-form-success><strong>{{FORM_SUCCESS_TITLE}}</strong><p>{{FORM_SUCCESS_TEXT}}</p></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <div><p class="eyebrow">{{CONTACT_EYEBROW}}</p><h2>{{CONTACT_TITLE}}</h2><p>{{CONTACT_TEXT}}</p><p class="contact-area">{{CONTACT_AREA}}</p></div>
+        <div class="contact-links">
+          <a href="tel:{{PHONE_TEL}}"><span>{{CONTACT_PHONE_LABEL}}</span><strong>{{PHONE_DISPLAY}}</strong></a>
+          <a href="mailto:{{EMAIL}}"><span>{{CONTACT_EMAIL_LABEL}}</span><strong>{{EMAIL}}</strong></a>
+          <a href="sms:{{PHONE_TEL}}?body={{SMS_BODY}}"><span>{{CONTACT_SMS_LABEL}}</span><strong>{{CONTACT_SMS_ACTION}}</strong></a>
+          <a href="https://example.com/{{WHATSAPP_PATH}}" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>{{CONTACT_WRITE_ACTION}}</strong></a>
+          <a href="https://example.com/{{TELEGRAM_PATH}}" target="_blank" rel="noopener noreferrer"><span>Telegram</span><strong>{{CONTACT_WRITE_ACTION}}</strong></a>
+        </div>
+        <div class="social-links"><p>{{SOCIAL_TITLE}}</p><a href="https://example.com/{{INSTAGRAM_PATH}}" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://example.com/{{FACEBOOK_PATH}}" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>{{SITE_NAME}}</strong><p>{{FOOTER_DESCRIPTOR}}</p></div>
+      <nav aria-label="{{FOOTER_NAV_LABEL}}"><a href="#services">{{NAV_SERVICES}}</a><a href="#pricing">{{NAV_PRICING}}</a><a href="#process">{{NAV_PROCESS}}</a><a href="#contact">{{NAV_CONTACT}}</a></nav>
+      <p>{{LEGAL_LINE}}</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title" hidden data-modal>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" data-close-modal aria-label="{{MODAL_CLOSE_LABEL}}">×</button>
+      <p class="eyebrow">{{MODAL_EYEBROW}}</p>
+      <h2 id="quote-modal-title">{{MODAL_TITLE}}</h2>
+      <p>{{MODAL_TEXT}}</p>
+      <form class="demo-form modal-form" data-demo-form novalidate>
+        <div class="form-field"><label for="modal-service">{{FORM_SERVICE_LABEL}}</label><select id="modal-service" name="service" required><option value="">{{FORM_SERVICE_PLACEHOLDER}}</option><option>{{FORM_SERVICE_OPTION_1}}</option><option>{{FORM_SERVICE_OPTION_2}}</option><option>{{FORM_SERVICE_OPTION_3}}</option></select><small class="field-error" id="modal-service-error"></small></div>
+        <div class="form-field"><label for="modal-phone">{{FORM_PHONE_LABEL}}</label><input id="modal-phone" name="phone" type="tel" autocomplete="tel" placeholder="{{FORM_PHONE_PLACEHOLDER}}" required><small class="field-error" id="modal-phone-error"></small></div>
+        <div class="form-field form-field-wide"><label for="modal-message">{{FORM_MESSAGE_LABEL}}</label><textarea id="modal-message" name="message" rows="4" placeholder="{{FORM_MESSAGE_PLACEHOLDER}}"></textarea><small>{{FORM_MESSAGE_HELP}}</small></div>
+        <button class="button button-dark button-block" type="submit">{{FORM_SUBMIT}}</button>
+        <div class="form-success" role="status" tabindex="-1" hidden data-form-success><strong>{{FORM_SUCCESS_TITLE}}</strong><p>{{FORM_SUCCESS_TEXT}}</p></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

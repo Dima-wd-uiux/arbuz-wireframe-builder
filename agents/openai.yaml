@@ -1,0 +1,8 @@
+interface:
+  display_name: "Arbuz Wireframe Builder"
+  short_description: "Собирает адаптивные кликабельные прототипы лендингов"
+  brand_color: "#111111"
+  default_prompt: "Используй $arbuz-wireframe-builder, чтобы собрать адаптивный кликабельный прототип лендинга по этой структуре и текстам."
+
+policy:
+  allow_implicit_invocation: true
