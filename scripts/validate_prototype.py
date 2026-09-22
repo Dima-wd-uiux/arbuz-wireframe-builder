@@ -11,7 +11,15 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 
-REQUIRED_FILES = ("index.html", "styles.css", "script.js", "netlify.toml")
+REQUIRED_FILES = (
+    "index.html",
+    "styles.css",
+    "script.js",
+    "netlify.toml",
+    "content-map.md",
+    "handoff.md",
+)
+TEXT_FILE_SUFFIXES = {".html", ".css", ".js", ".md", ".toml", ".json", ".txt", ".svg"}
 PLACEHOLDER_PATTERN = re.compile(r"\{\{[^{}]+\}\}|\b(?:TODO|TBD|Lorem ipsum)\b", re.I)
 
 
@@ -28,6 +36,9 @@ class PrototypeParser(HTMLParser):
         self.has_viewport = False
         self.has_description = False
         self.has_title = False
+        self.has_robots_noindex = False
+        self.h1_count = 0
+        self.form_actions: list[str] = []
         self._inside_title = False
         self._title_text: list[str] = []
 
@@ -36,6 +47,9 @@ class PrototypeParser(HTMLParser):
         node_id = values.get("id")
         if node_id:
             self.ids.append(node_id)
+
+        if tag == "h1":
+            self.h1_count += 1
 
         if tag == "html" and values.get("lang").strip():
             self.has_lang = True
@@ -46,6 +60,8 @@ class PrototypeParser(HTMLParser):
                 self.has_viewport = True
             if values.get("name", "").lower() == "description" and values.get("content", "").strip():
                 self.has_description = True
+            if values.get("name", "").lower() == "robots" and "noindex" in values.get("content", "").lower():
+                self.has_robots_noindex = True
         elif tag == "a":
             href = values.get("href", "")
             if href.startswith("#"):
@@ -59,6 +75,8 @@ class PrototypeParser(HTMLParser):
             if "alt" not in values:
                 self.images_without_alt.append(values.get("src", "<inline>"))
             self._collect_local_file(values.get("src", ""))
+        elif tag == "form":
+            self.form_actions.append(values.get("action", "").strip())
         elif tag in {"input", "select", "textarea"}:
             input_type = values.get("type", "").lower()
             if input_type != "hidden":
@@ -90,6 +108,13 @@ def parse_args() -> argparse.Namespace:
         "--allow-placeholders",
         action="store_true",
         help="Allow starter {{TOKENS}} while testing the bundled template.",
+    )
+    parser.add_argument(
+        "--allow-token",
+        action="append",
+        default=[],
+        metavar="TOKEN",
+        help="Allow one explicitly approved {{TOKEN}} in a final prototype; repeat as needed.",
     )
     return parser.parse_args()
 
@@ -143,17 +168,24 @@ def main() -> int:
             errors.append("Missing non-empty meta description")
         if not parser.has_title:
             errors.append("Missing non-empty title")
+        if parser.h1_count != 1:
+            errors.append(f"Expected exactly one H1, found {parser.h1_count}")
+        if not parser.has_robots_noindex:
+            errors.append("Prototype needs a robots meta tag containing noindex")
+
+        external_form_actions = [
+            action
+            for action in parser.form_actions
+            if action and not action.startswith(("#", "/"))
+        ]
+        if external_form_actions:
+            errors.append("Prototype form has an external action: " + ", ".join(external_form_actions))
 
         for field_id, aria_label in parser.inputs:
             if not field_id and not aria_label:
                 errors.append("Form control without id/label or aria-label")
             elif field_id and field_id not in parser.label_fors and not aria_label:
                 errors.append(f"Form control has no associated label: {field_id}")
-
-        if not args.allow_placeholders:
-            placeholders = sorted(set(PLACEHOLDER_PATTERN.findall(html)))
-            if placeholders:
-                errors.append("Unresolved text placeholders: " + ", ".join(placeholders[:12]))
 
     if css_path.is_file():
         css = css_path.read_text(encoding="utf-8")
@@ -181,6 +213,34 @@ def main() -> int:
             errors.append('netlify.toml should publish the project root: publish = "."')
         if "X-Robots-Tag" not in netlify or "noindex" not in netlify:
             warnings.append("Netlify config does not explicitly block indexing")
+
+    if not args.allow_placeholders:
+        unresolved: list[str] = []
+        approved_tokens = {token.strip().strip("{}") for token in args.allow_token if token.strip()}
+        approved_found: set[str] = set()
+        for path in sorted(root.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in TEXT_FILE_SUFFIXES:
+                continue
+            try:
+                content = path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                warnings.append(f"Could not scan non-UTF-8 text file: {path.relative_to(root)}")
+                continue
+            for match in PLACEHOLDER_PATTERN.finditer(content):
+                raw = match.group(0)
+                if raw.startswith("{{"):
+                    token = raw[2:-2].strip()
+                    if token in approved_tokens:
+                        approved_found.add(token)
+                        continue
+                unresolved.append(f"{path.relative_to(root)}: {match.group(0)}")
+        if unresolved:
+            errors.append("Unresolved placeholders: " + "; ".join(unresolved[:20]))
+        unused_approvals = sorted(approved_tokens - approved_found)
+        if unused_approvals:
+            warnings.append("Allowed tokens were not found: " + ", ".join(unused_approvals))
+        if approved_found:
+            warnings.append("Explicitly approved unresolved tokens: " + ", ".join(sorted(approved_found)))
 
     for warning in warnings:
         print(f"WARN: {warning}")

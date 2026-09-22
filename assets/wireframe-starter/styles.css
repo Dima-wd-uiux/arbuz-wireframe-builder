@@ -1169,6 +1169,10 @@ span {
   text-underline-offset: 4px;
 }
 
+.mobile-actions {
+  display: none;
+}
+
 .modal {
   position: fixed;
   z-index: 100;
@@ -1337,6 +1341,54 @@ span {
   :root {
     --header-height: 70px;
     --space-8: 64px;
+  }
+
+  body.has-mobile-actions {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+
+  body.has-mobile-actions.modal-open {
+    padding-bottom: 0;
+  }
+
+  .mobile-actions {
+    position: fixed;
+    z-index: 80;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 1px solid var(--ink);
+    background: var(--paper);
+  }
+
+  .mobile-actions a {
+    display: flex;
+    min-width: 0;
+    min-height: 64px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-right: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .mobile-actions a:last-child {
+    border-right: 0;
+  }
+
+  .mobile-actions .mobile-action-primary {
+    color: var(--paper);
+    background: var(--ink);
+  }
+
+  .modal-open .mobile-actions {
+    display: none;
   }
 
   .container {

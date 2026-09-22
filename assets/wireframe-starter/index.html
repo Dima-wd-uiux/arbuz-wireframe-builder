@@ -8,7 +8,7 @@
   <title>{{META_TITLE}}</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="has-mobile-actions">
   <a class="skip-link" href="#main">{{SKIP_LINK}}</a>
 
   <header class="site-header" data-header>
@@ -420,6 +420,12 @@
       <p>{{LEGAL_LINE}}</p>
     </div>
   </footer>
+
+  <nav class="mobile-actions" aria-label="{{MOBILE_ACTIONS_LABEL}}">
+    <a href="sms:{{PHONE_TEL}}?body={{SMS_BODY}}">{{MOBILE_SMS_LABEL}}</a>
+    <a class="mobile-action-primary" href="tel:{{PHONE_TEL}}">{{MOBILE_CALL_LABEL}}</a>
+    <a href="https://example.com/{{WHATSAPP_PATH}}" target="_blank" rel="noopener noreferrer">{{MOBILE_WHATSAPP_LABEL}}</a>
+  </nav>
 
   <div class="modal" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title" hidden data-modal>
     <div class="modal-backdrop" data-close-modal></div>
